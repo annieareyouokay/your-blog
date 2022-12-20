@@ -3,7 +3,7 @@ import LoginForm from '../components/ui/loginForm';
 
 const Login = () => {
   return (
-    <div className="hero is-medium is-info">
+    <div className="container hero is-medium is-info">
       <div className="hero-body">
         <div className="container has-text-centered">
           <div className="column is-6 is-offset-3">

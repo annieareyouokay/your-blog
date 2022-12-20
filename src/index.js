@@ -6,7 +6,8 @@ import App from './app/App';
 import reportWebVitals from './reportWebVitals';
 import { createStore } from './app/store/createStore';
 import { Provider } from 'react-redux';
-// import { Router } from 'react-router-dom';
+import { Router } from 'react-router-dom';
+import history from './app/utils/history';
 
 const store = createStore();
 
@@ -14,7 +15,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <Router history={history}>
+        <App />
+      </Router>
     </Provider>
   </React.StrictMode>
 );
