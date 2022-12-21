@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EditArticlePage = () => {
+const AddArticlePage = () => {
   return (
     <div className="container is-max-desktop box">
       <div className="field">
@@ -43,7 +43,7 @@ const EditArticlePage = () => {
       </div>
       <div className="field is-grouped">
         <div className="control">
-          <button className="button is-link">Save</button>
+          <button className="button is-link">Add</button>
         </div>
         <div className="control">
           <button className="button is-link is-light">Cancel</button>
@@ -53,4 +53,4 @@ const EditArticlePage = () => {
   );
 };
 
-export default EditArticlePage;
+export default AddArticlePage;

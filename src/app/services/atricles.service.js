@@ -1,10 +1,10 @@
 import httpService from './http.service';
 
-const ariclesEndpoint = 'articles/';
+const articlesEndpoint = 'articles/';
 
 const articlesService = {
   get: async () => {
-    const { data } = await httpService.get(ariclesEndpoint);
+    const { data } = await httpService.get(articlesEndpoint);
     return data;
   }
 };

@@ -1,63 +1,63 @@
 {
   "articles": [
     {
-      "id": 1,
-      "userId": 1,
-      "img": "",
+      "id": "1",
+      "userId": "1",
+      "img": "https://loremflickr.com/320/240?random=2",
+      "title": "Lorem ipsum dolor",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc aliquet bibendum enim facilisis gravida neque convallis. In dictum non consectetur a erat. Nam libero justo laoreet sit amet cursus sit amet.",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc aliquet bibendum enim facilisis gravida neque convallis. In dictum non consectetur a erat. Nam libero justo laoreet sit amet cursus sit amet. In massa tempor nec feugiat. Euismod elementum nisi quis eleifend quam. Vestibulum lorem sed risus ultricies tristique nulla. Integer vitae justo eget magna. Faucibus ornare suspendisse sed nisi lacus. Mi tempus imperdiet nulla malesuada pellentesque elit. Rutrum quisque non tellus orci ac auctor. Adipiscing vitae proin sagittis nisl. Ut enim blandit volutpat maecenas volutpat. Luctus accumsan tortor posuere ac ut. Augue eget arcu dictum varius duis at. Mauris sit amet massa vitae tortor condimentum. Elit ullamcorper dignissim cras tincidunt. Et netus et malesuada fames ac turpis egestas maecenas pharetra. In hac habitasse platea dictumst quisque sagittis purus sit. Tellus mauris a diam maecenas sed enim ut sem.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc aliquet bibendum enim facilisis gravida neque convallis. In dictum non consectetur a erat. Nam libero justo laoreet sit amet cursus sit amet. In massa tempor nec feugiat. Euismod elementum nisi quis eleifend quam. Vestibulum lorem sed risus ultricies tristique nulla. Integer vitae justo eget magna. Faucibus ornare suspendisse sed nisi lacus. Mi tempus imperdiet nulla malesuada pellentesque elit. Rutrum quisque non tellus orci ac auctor. Adipiscing vitae proin sagittis nisl. Ut enim blandit volutpat maecenas volutpat. Luctus accumsan tortor posuere ac ut. Augue eget arcu dictum varius duis at. Mauris sit amet massa vitae tortor condimentum. Elit ullamcorper dignissim cras tincidunt. Et netus et malesuada fames ac turpis egestas maecenas pharetra. In hac habitasse platea dictumst quisque sagittis purus sit. Tellus mauris a diam maecenas sed enim ut sem.",
+      "date": "19-12-2022 12:00:00"
+    },
+    {
+      "id": "2",
+      "userId": "1",
+      "img": "https://loremflickr.com/320/240?random=2",
       "title": "Lorem ipsum dolor",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc aliquet bibendum enim facilisis gravida neque convallis. In dictum non consectetur a erat. Nam libero justo laoreet sit amet cursus sit amet.",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc aliquet bibendum enim facilisis gravida neque convallis. In dictum non consectetur a erat. Nam libero justo laoreet sit amet cursus sit amet. In massa tempor nec feugiat. Euismod elementum nisi quis eleifend quam. Vestibulum lorem sed risus ultricies tristique nulla. Integer vitae justo eget magna. Faucibus ornare suspendisse sed nisi lacus. Mi tempus imperdiet nulla malesuada pellentesque elit. Rutrum quisque non tellus orci ac auctor. Adipiscing vitae proin sagittis nisl. Ut enim blandit volutpat maecenas volutpat. Luctus accumsan tortor posuere ac ut. Augue eget arcu dictum varius duis at. Mauris sit amet massa vitae tortor condimentum. Elit ullamcorper dignissim cras tincidunt. Et netus et malesuada fames ac turpis egestas maecenas pharetra. In hac habitasse platea dictumst quisque sagittis purus sit. Tellus mauris a diam maecenas sed enim ut sem.",
       "date": "19-12-2022 12:00:00"
     },
     {
-      "id": 2,
-      "userId": 1,
-      "img": "",
+      "id": "3",
+      "userId": "1",
+      "img": "https://loremflickr.com/320/240?random=2",
       "title": "Lorem ipsum dolor",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc aliquet bibendum enim facilisis gravida neque convallis. In dictum non consectetur a erat. Nam libero justo laoreet sit amet cursus sit amet.",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc aliquet bibendum enim facilisis gravida neque convallis. In dictum non consectetur a erat. Nam libero justo laoreet sit amet cursus sit amet. In massa tempor nec feugiat. Euismod elementum nisi quis eleifend quam. Vestibulum lorem sed risus ultricies tristique nulla. Integer vitae justo eget magna. Faucibus ornare suspendisse sed nisi lacus. Mi tempus imperdiet nulla malesuada pellentesque elit. Rutrum quisque non tellus orci ac auctor. Adipiscing vitae proin sagittis nisl. Ut enim blandit volutpat maecenas volutpat. Luctus accumsan tortor posuere ac ut. Augue eget arcu dictum varius duis at. Mauris sit amet massa vitae tortor condimentum. Elit ullamcorper dignissim cras tincidunt. Et netus et malesuada fames ac turpis egestas maecenas pharetra. In hac habitasse platea dictumst quisque sagittis purus sit. Tellus mauris a diam maecenas sed enim ut sem.",
       "date": "19-12-2022 12:00:00"
     },
     {
-      "id": 3,
-      "userId": 1,
-      "img": "",
+      "id": "4",
+      "userId": "1",
+      "img": "https://loremflickr.com/320/240?random=2",
+      "title": "Lorem ipsum dolor",
+      "description": "asdasddsad asdsadsa asd ad ad as as das d a Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc aliquet bibendum enim facilisis gravida neque convallis. In dictum non consectetur a erat. Nam libero justo laoreet sit amet cursus sit amet.",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc aliquet bibendum enim facilisis gravida neque convallis. In dictum non consectetur a erat. Nam libero justo laoreet sit amet cursus sit amet. In massa tempor nec feugiat. Euismod elementum nisi quis eleifend quam. Vestibulum lorem sed risus ultricies tristique nulla. Integer vitae justo eget magna. Faucibus ornare suspendisse sed nisi lacus. Mi tempus imperdiet nulla malesuada pellentesque elit. Rutrum quisque non tellus orci ac auctor. Adipiscing vitae proin sagittis nisl. Ut enim blandit volutpat maecenas volutpat. Luctus accumsan tortor posuere ac ut. Augue eget arcu dictum varius duis at. Mauris sit amet massa vitae tortor condimentum. Elit ullamcorper dignissim cras tincidunt. Et netus et malesuada fames ac turpis egestas maecenas pharetra. In hac habitasse platea dictumst quisque sagittis purus sit. Tellus mauris a diam maecenas sed enim ut sem.",
+      "date": "19-12-2022 12:00:00"
+    },
+    {
+      "id": "5",
+      "userId": "1",
+      "img": "https://loremflickr.com/320/240?random=2",
       "title": "Lorem ipsum dolor",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc aliquet bibendum enim facilisis gravida neque convallis. In dictum non consectetur a erat. Nam libero justo laoreet sit amet cursus sit amet.",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc aliquet bibendum enim facilisis gravida neque convallis. In dictum non consectetur a erat. Nam libero justo laoreet sit amet cursus sit amet. In massa tempor nec feugiat. Euismod elementum nisi quis eleifend quam. Vestibulum lorem sed risus ultricies tristique nulla. Integer vitae justo eget magna. Faucibus ornare suspendisse sed nisi lacus. Mi tempus imperdiet nulla malesuada pellentesque elit. Rutrum quisque non tellus orci ac auctor. Adipiscing vitae proin sagittis nisl. Ut enim blandit volutpat maecenas volutpat. Luctus accumsan tortor posuere ac ut. Augue eget arcu dictum varius duis at. Mauris sit amet massa vitae tortor condimentum. Elit ullamcorper dignissim cras tincidunt. Et netus et malesuada fames ac turpis egestas maecenas pharetra. In hac habitasse platea dictumst quisque sagittis purus sit. Tellus mauris a diam maecenas sed enim ut sem.",
       "date": "19-12-2022 12:00:00"
     },
     {
-      "id": 4,
-      "userId": 1,
-      "img": "",
+      "id": "6",
+      "userId": "1",
+      "img": "https://loremflickr.com/320/240?random=2",
       "title": "Lorem ipsum dolor",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc aliquet bibendum enim facilisis gravida neque convallis. In dictum non consectetur a erat. Nam libero justo laoreet sit amet cursus sit amet.",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc aliquet bibendum enim facilisis gravida neque convallis. In dictum non consectetur a erat. Nam libero justo laoreet sit amet cursus sit amet. In massa tempor nec feugiat. Euismod elementum nisi quis eleifend quam. Vestibulum lorem sed risus ultricies tristique nulla. Integer vitae justo eget magna. Faucibus ornare suspendisse sed nisi lacus. Mi tempus imperdiet nulla malesuada pellentesque elit. Rutrum quisque non tellus orci ac auctor. Adipiscing vitae proin sagittis nisl. Ut enim blandit volutpat maecenas volutpat. Luctus accumsan tortor posuere ac ut. Augue eget arcu dictum varius duis at. Mauris sit amet massa vitae tortor condimentum. Elit ullamcorper dignissim cras tincidunt. Et netus et malesuada fames ac turpis egestas maecenas pharetra. In hac habitasse platea dictumst quisque sagittis purus sit. Tellus mauris a diam maecenas sed enim ut sem.",
       "date": "19-12-2022 12:00:00"
     },
     {
-      "id": 5,
-      "userId": 1,
-      "img": "",
-      "title": "Lorem ipsum dolor",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc aliquet bibendum enim facilisis gravida neque convallis. In dictum non consectetur a erat. Nam libero justo laoreet sit amet cursus sit amet.",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc aliquet bibendum enim facilisis gravida neque convallis. In dictum non consectetur a erat. Nam libero justo laoreet sit amet cursus sit amet. In massa tempor nec feugiat. Euismod elementum nisi quis eleifend quam. Vestibulum lorem sed risus ultricies tristique nulla. Integer vitae justo eget magna. Faucibus ornare suspendisse sed nisi lacus. Mi tempus imperdiet nulla malesuada pellentesque elit. Rutrum quisque non tellus orci ac auctor. Adipiscing vitae proin sagittis nisl. Ut enim blandit volutpat maecenas volutpat. Luctus accumsan tortor posuere ac ut. Augue eget arcu dictum varius duis at. Mauris sit amet massa vitae tortor condimentum. Elit ullamcorper dignissim cras tincidunt. Et netus et malesuada fames ac turpis egestas maecenas pharetra. In hac habitasse platea dictumst quisque sagittis purus sit. Tellus mauris a diam maecenas sed enim ut sem.",
-      "date": "19-12-2022 12:00:00"
-    },
-    {
-      "id": 6,
-      "userId": 1,
-      "img": "",
-      "title": "Lorem ipsum dolor",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc aliquet bibendum enim facilisis gravida neque convallis. In dictum non consectetur a erat. Nam libero justo laoreet sit amet cursus sit amet.",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc aliquet bibendum enim facilisis gravida neque convallis. In dictum non consectetur a erat. Nam libero justo laoreet sit amet cursus sit amet. In massa tempor nec feugiat. Euismod elementum nisi quis eleifend quam. Vestibulum lorem sed risus ultricies tristique nulla. Integer vitae justo eget magna. Faucibus ornare suspendisse sed nisi lacus. Mi tempus imperdiet nulla malesuada pellentesque elit. Rutrum quisque non tellus orci ac auctor. Adipiscing vitae proin sagittis nisl. Ut enim blandit volutpat maecenas volutpat. Luctus accumsan tortor posuere ac ut. Augue eget arcu dictum varius duis at. Mauris sit amet massa vitae tortor condimentum. Elit ullamcorper dignissim cras tincidunt. Et netus et malesuada fames ac turpis egestas maecenas pharetra. In hac habitasse platea dictumst quisque sagittis purus sit. Tellus mauris a diam maecenas sed enim ut sem.",
-      "date": "19-12-2022 12:00:00"
-    },
-    {
-      "id": 7,
-      "userId": 1,
-      "img": "",
+      "id": "7",
+      "userId": "1",
+      "img": "https://loremflickr.com/320/240?random=2",
       "title": "Lorem ipsum dolor",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc aliquet bibendum enim facilisis gravida neque convallis. In dictum non consectetur a erat. Nam libero justo laoreet sit amet cursus sit amet.",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc aliquet bibendum enim facilisis gravida neque convallis. In dictum non consectetur a erat. Nam libero justo laoreet sit amet cursus sit amet. In massa tempor nec feugiat. Euismod elementum nisi quis eleifend quam. Vestibulum lorem sed risus ultricies tristique nulla. Integer vitae justo eget magna. Faucibus ornare suspendisse sed nisi lacus. Mi tempus imperdiet nulla malesuada pellentesque elit. Rutrum quisque non tellus orci ac auctor. Adipiscing vitae proin sagittis nisl. Ut enim blandit volutpat maecenas volutpat. Luctus accumsan tortor posuere ac ut. Augue eget arcu dictum varius duis at. Mauris sit amet massa vitae tortor condimentum. Elit ullamcorper dignissim cras tincidunt. Et netus et malesuada fames ac turpis egestas maecenas pharetra. In hac habitasse platea dictumst quisque sagittis purus sit. Tellus mauris a diam maecenas sed enim ut sem.",
@@ -66,8 +66,11 @@
   ],
   "users": [
     {
-      "id": 1,
-      "name": "Maksim Yurovnik"
+      "id": "1",
+      "name": "Maksim Yurovnik",
+      "image": "https://avatars.dicebear.com/api/avataaars/jkshil.svg",
+      "email": "mail@mail.com",
+      "sex": "male"
     }
   ]
 }

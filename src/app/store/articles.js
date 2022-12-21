@@ -41,7 +41,7 @@ export const getArticlesLoadingStatus = () => (state) =>
   state.articles.isLoading;
 export const getArticleById = (id) => (state) => {
   if (state.articles.entities) {
-    return state.articles.entities.find((a) => a.id === Number(id));
+    return state.articles.entities.find((a) => a.id === id);
   }
 };
 

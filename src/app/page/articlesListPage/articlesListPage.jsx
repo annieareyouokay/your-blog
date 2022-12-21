@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import ArticleCard from '../../components/ui/articleCard';
 import { getArticles } from '../../store/articles';
 
 const TAIL_COUNT = 3;
@@ -22,20 +23,17 @@ const ArticlesListPage = () => {
   }
   return articlesCrop.map((arr, index) => {
     return (
-      <div className="tile is-ancestor" key={index}>
+      <div
+        className="tile is-ancestor is-flex is-flex-direction-row"
+        key={index}
+      >
         {arr.map((a) => {
           return (
-            <div className="tile is-parent" key={a.id}>
-              <article className="tile is-child box">
-                <p className="title">{a.title}</p>
-                <p className="subtitle">{a.description}</p>
-                <div className="is-flex is-justify-content-space-between">
-                  <p className="subtitle is-6">{a.date}</p>
-                  <div className="is-flex is-justify-content-flex-end">
-                    <button className="button is-primary">More</button>
-                  </div>
-                </div>
-              </article>
+            <div
+              className="tile is-parent is-4 is-flex is-flex-direction-column"
+              key={a.id}
+            >
+              <ArticleCard article={a} />
             </div>
           );
         })}
