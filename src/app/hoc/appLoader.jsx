@@ -15,7 +15,7 @@ const AppLoader = ({ children }) => {
     dispatch(loadArticlesList());
   }, []);
 
-  if (articlesIsLoading && usersIsLoading) <Loader />;
+  if (articlesIsLoading && usersIsLoading) return <Loader />;
   return children;
 };
 

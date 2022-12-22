@@ -19,7 +19,7 @@ const ArticlePage = () => {
                 <figure className="image is-5by3">
                   <img src={article.img}></img>
                 </figure>
-                <UserCard userId={article.id} />
+                <UserCard userId={article.userId} />
                 <h1>{article.title}</h1>
                 <p>{article.content}</p>
                 <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>

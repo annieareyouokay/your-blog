@@ -6,14 +6,16 @@ import AppLoader from './hoc/appLoader';
 import Articles from './layouts/aricles';
 import Main from './layouts/main';
 import Logout from './layouts/logout';
+import ManageUserArticles from './page/manageUserArticles/manageUserArticles';
 
 const App = () => {
   return (
-    <div className="container is-fluid">
+    <div>
       <AppLoader>
         <NavBar />
         <Switch>
           <Route exact path="/" component={Main} />
+          <Route path="/manage" component={ManageUserArticles} />
           <Route path="/articles" component={Articles} />
           <Route path="/login/:type?" component={Login} />
           <Route path="/logout" component={Logout} />

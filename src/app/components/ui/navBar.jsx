@@ -1,9 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import NavProfile from './navProfile';
 
 const NavBar = () => {
   return (
-    <nav className="navbar" role="navigation" aria-label="main navigation">
+    <nav
+      className="navbar has-shadow"
+      role="navigation"
+      aria-label="main navigation"
+    >
       <div className="navbar-brand">
         <Link className="navbar-item" to="/">
           <img
@@ -27,6 +32,7 @@ const NavBar = () => {
               <Link className="button is-light" to="/login">
                 Log in
               </Link>
+              <NavProfile />
             </div>
           </div>
         </div>

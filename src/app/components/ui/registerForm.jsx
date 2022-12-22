@@ -54,7 +54,7 @@ const RegisterForm = () => {
       </CheckBoxField>
       <div className="field">
         <p className="control">
-          <button className="button is-success">Login</button>
+          <button className="button is-success">Submit</button>
         </p>
       </div>
       <div className="field">

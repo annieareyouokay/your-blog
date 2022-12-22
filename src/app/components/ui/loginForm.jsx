@@ -9,8 +9,6 @@ const LoginForm = () => {
   });
   const [errors] = useState({});
 
-  console.log(data);
-
   const handleChange = (target) => {
     setData((prevState) => ({
       ...prevState,

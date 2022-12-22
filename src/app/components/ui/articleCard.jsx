@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import UserCard from './userCard';
+import { Link } from 'react-router-dom';
 
 const ArticleCard = ({ article }) => {
   return (
@@ -19,10 +20,15 @@ const ArticleCard = ({ article }) => {
         </div>
       </div>
       <div className="is-flex is-justify-content-space-between">
-        <time className="is-flex is-align-self-flex-end" dateTime="2016-1-1">
-          11:09 PM - 1 Jan 2016
+        <time
+          className="is-flex is-align-self-flex-end"
+          dateTime={article.date}
+        >
+          {article.date}
         </time>
-        <button className="button is-primary">More</button>
+        <Link to={`/articles/${article.id}`} className="button is-primary">
+          More
+        </Link>
       </div>
     </div>
   );

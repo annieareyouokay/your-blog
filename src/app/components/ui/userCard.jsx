@@ -6,16 +6,13 @@ import Loader from '../../layouts/loader';
 
 const UserCard = ({ userId }) => {
   const user = useSelector(getUserById(userId));
+
   if (user) {
     return (
       <div className="media">
         <div className="media-left">
           <figure className="image is-48x48">
-            <img
-              className="is-rounded"
-              src={user.image}
-              alt="Placeholder image"
-            ></img>
+            <img className="is-rounded" src={user.image} alt="avatar"></img>
           </figure>
         </div>
         <div className="media-content">
@@ -25,7 +22,7 @@ const UserCard = ({ userId }) => {
       </div>
     );
   } else {
-    return <Loader />;
+    return <Loader width="60" height="60" />;
   }
 };
 

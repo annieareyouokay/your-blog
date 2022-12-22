@@ -44,5 +44,10 @@ export const getArticleById = (id) => (state) => {
     return state.articles.entities.find((a) => a.id === id);
   }
 };
+export const getArticlesByUserId = (userId) => (state) => {
+  if (state.articles.entities) {
+    return state.articles.entities.filter((a) => a.userId === userId);
+  }
+};
 
 export default articlesReducer;

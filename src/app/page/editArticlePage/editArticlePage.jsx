@@ -1,32 +1,63 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux/es/exports';
+import TextField from '../../components/common/form/textField';
+import TextAreaField from '../../components/common/form/textAreaField';
+import { useParams } from 'react-router-dom';
+import { getArticleById } from '../../store/articles';
+import Loader from '../../layouts/loader';
 
 const EditArticlePage = () => {
+  const { articleId } = useParams();
+  const article = useSelector(getArticleById(articleId));
+  const [data, setData] = useState({
+    title: '',
+    description: '',
+    content: ''
+  });
+  const [errors] = useState({});
+  useEffect(() => {
+    if (article) {
+      setData({
+        title: article.title,
+        description: article.description,
+        content: article.content
+      });
+    }
+  }, [article]);
+
+  const handleChange = (target) => {
+    setData((prevState) => ({
+      ...prevState,
+      [target.name]: target.value
+    }));
+  };
+  if (!article) return <Loader />;
   return (
     <div className="container is-max-desktop box">
-      <div className="field">
-        <label className="label">Title</label>
-        <div className="control">
-          <input className="input" type="text" placeholder="Text input" />
-        </div>
-      </div>
-
-      <div className="field">
-        <label className="label">Description</label>
-        <div className="control">
-          <input className="input" type="text" placeholder="Text input" />
-        </div>
-      </div>
-
-      <div className="field">
-        <label className="label">Message</label>
-        <div className="control">
-          <textarea
-            className="textarea is-large"
-            placeholder="Textarea"
-            rows="12"
-          ></textarea>
-        </div>
-      </div>
+      <label className="label">Title</label>
+      <TextField
+        label="Title"
+        name="title"
+        value={data.title}
+        onChange={handleChange}
+        error={errors.title}
+      />
+      <label className="label">Description</label>
+      <TextField
+        label="Description"
+        name="description"
+        value={data.description}
+        onChange={handleChange}
+        error={errors.description}
+      />
+      <TextAreaField
+        label="Content"
+        name="content"
+        value={data.content}
+        onChange={handleChange}
+        error={errors.content}
+        rows="14"
+      />
       <div className="file has-name block">
         <label className="file-label">
           <input className="file-input" type="file" name="resume" />
