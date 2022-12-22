@@ -1,10 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { getArticleById } from '../../store/articles';
 import UserCard from '../../components/ui/userCard';
+import { useParams } from 'react-router-dom';
+import Loader from '../../layouts/loader';
 
-const ArticlePage = ({ articleId }) => {
+const ArticlePage = () => {
+  const { articleId } = useParams();
   const article = useSelector(getArticleById(articleId));
 
   if (article) {
@@ -28,12 +30,8 @@ const ArticlePage = ({ articleId }) => {
       </div>
     );
   } else {
-    return <h1 className="title">Loading...</h1>;
+    return <Loader />;
   }
-};
-
-ArticlePage.propTypes = {
-  articleId: PropTypes.string.isRequired
 };
 
 export default ArticlePage;

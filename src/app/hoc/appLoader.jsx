@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { getArticlesLoadingStatus, loadArticlesList } from '../store/articles';
 import { getUsersLoadingStatus, loadUsersList } from '../store/users';
+import Loader from '../layouts/loader';
 
 const AppLoader = ({ children }) => {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const AppLoader = ({ children }) => {
     dispatch(loadArticlesList());
   }, []);
 
-  if (articlesIsLoading && usersIsLoading) <h1 className="title is-1">Loading...</h1>;
+  if (articlesIsLoading && usersIsLoading) <Loader />;
   return children;
 };
 

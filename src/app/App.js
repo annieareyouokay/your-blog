@@ -13,11 +13,10 @@ const App = () => {
       <AppLoader>
         <NavBar />
         <Switch>
+          <Route exact path="/" component={Main} />
+          <Route path="/articles" component={Articles} />
           <Route path="/login/:type?" component={Login} />
           <Route path="/logout" component={Logout} />
-          <Route path="/articles/:articleId?/:edit?" component={Articles} />
-          <Route path="/:add?" component={Articles} />
-          <Route path="/" component={Main} />
           <Redirect to="/" />
         </Switch>
       </AppLoader>

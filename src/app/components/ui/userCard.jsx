@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { getUserById } from '../../store/users';
 import { useSelector } from 'react-redux';
+import Loader from '../../layouts/loader';
 
 const UserCard = ({ userId }) => {
   const user = useSelector(getUserById(userId));
@@ -24,7 +25,7 @@ const UserCard = ({ userId }) => {
       </div>
     );
   } else {
-    return <h1 className="title">Loading</h1>;
+    return <Loader />;
   }
 };
 

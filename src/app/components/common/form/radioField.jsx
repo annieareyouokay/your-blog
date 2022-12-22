@@ -6,30 +6,26 @@ const RadioField = ({ options, name, onChange, value, label }) => {
     onChange({ name: target.name, value: target.value });
   };
   return (
-    <div className="mb-4">
-      <label className="form-label">{label}</label>
-      <div>
+    <div className="field">
+      <label className="label">{label}</label>
+      <div className="control">
         {options.map((option) => (
-          <div
+          <label
+            className="radio m-1"
+            htmlFor={option.name + '_' + option.value}
             key={option.name + '_' + option.value}
-            className="form-check form-check-inline"
           >
             <input
-              className="form-check-input"
               type="radio"
               name={name}
               id={option.name + '_' + option.value}
               checked={option.value === value}
               value={option.value}
               onChange={handleChange}
+              className="m-2"
             />
-            <label
-              className="form-check-label"
-              htmlFor={option.name + '_' + option.value}
-            >
-              {option.name}
-            </label>
-          </div>
+            {option.name}
+          </label>
         ))}
       </div>
     </div>

@@ -6,22 +6,24 @@ const CheckBoxField = ({ name, value, onChange, children, error }) => {
     onChange({ name: name, value: !value });
   };
   const getInputClasses = () => {
-    return 'form-check-input' + (error ? ' is-invalid' : '');
+    return 'checkbox' + (error ? ' is-danger' : '');
   };
   return (
-    <div className="form-check mb-4">
-      <input
-        className={getInputClasses()}
-        type="checkbox"
-        value=""
-        id={name}
-        onChange={handleChange}
-        checked={value}
-      />
-      <label className="form-check-label" htmlFor={name}>
-        {children}
-      </label>
-      {error && <div className="invalid-feedback">{error}</div>}
+    <div className="field">
+      <div className="control">
+        <label className={getInputClasses()} htmlFor={name}>
+          <input
+            type="checkbox"
+            value=""
+            id={name}
+            onChange={handleChange}
+            checked={value}
+            className="m-2"
+          />
+          {children}
+        </label>
+      </div>
+      {error && <div className="help is-danger">{error}</div>}
     </div>
   );
 };

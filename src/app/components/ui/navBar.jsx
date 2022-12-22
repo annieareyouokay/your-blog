@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
-        <a className="navbar-item" href="localhost:3000">
+        <Link className="navbar-item" to="/">
           <img
             src={
               process.env.PUBLIC_URL +
@@ -13,29 +14,19 @@ const NavBar = () => {
             width="90"
             height="28"
           ></img>
-        </a>
-
-        <a
-          role="button"
-          className="navbar-burger"
-          aria-label="menu"
-          aria-expanded="false"
-          data-target="navbarBasicExample"
-        >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
+        </Link>
       </div>
 
       <div id="navbarBasicExample" className="navbar-menu">
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="buttons">
-              <a className="button is-primary">
+              <Link className="button is-primary" to="/login/signUp">
                 <strong>Sign up</strong>
-              </a>
-              <a className="button is-light">Log in</a>
+              </Link>
+              <Link className="button is-light" to="/login">
+                Log in
+              </Link>
             </div>
           </div>
         </div>

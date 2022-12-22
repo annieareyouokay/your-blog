@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import ArticleCard from '../../components/ui/articleCard';
+import Loader from '../../layouts/loader';
 import { getArticles } from '../../store/articles';
 
 const TAIL_COUNT = 3;
@@ -10,7 +11,7 @@ const ArticlesListPage = () => {
 
   let articlesCrop = [];
   if (!articles) {
-    return <h1 className="title">Loading</h1>;
+    return <Loader />;
   } else {
     articlesCrop = getCrop(articles);
     function getCrop(articles) {
