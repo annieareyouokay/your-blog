@@ -9,15 +9,15 @@ const UserCard = ({ userId }) => {
 
   if (user) {
     return (
-      <div className="media">
+      <div className="media m-3">
         <div className="media-left">
           <figure className="image is-48x48">
             <img className="is-rounded" src={user.image} alt="avatar"></img>
           </figure>
         </div>
-        <div className="media-content">
-          <p className="title is-4">{user.name}</p>
-          <p className="subtitle is-6">{`@${user.name.replace(' ', '')}`}</p>
+        <div className="media-content is-info">
+          <p className="title is-5 has-text-black">{user.name}</p>
+          <p className="subtitle is-6 has-text-black">{`@${user.name.replace(' ', '')}`}</p>
         </div>
       </div>
     );

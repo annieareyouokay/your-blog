@@ -11,21 +11,19 @@ const ArticlePage = () => {
 
   if (article) {
     return (
-      <div className="container is-max-desktop">
-        <div className="tile-is-ancestor">
-          <div className="tile is-parent box">
-            <div className="tile is-child">
-              <div className="content">
-                <figure className="image is-5by3">
-                  <img src={article.img}></img>
-                </figure>
-                <UserCard userId={article.userId} />
-                <h1>{article.title}</h1>
-                <p>{article.content}</p>
-                <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-              </div>
+      <div className="tile-is-ancestor">
+        <div className="tile is-parent">
+          <article className="tile is-child notification has-background-primary-light">
+            <div className="content">
+              <figure className="image is-5by3">
+                <img src={article.img}></img>
+              </figure>
+              <UserCard userId={article.userId} />
+              <h1 className='has-text-black'>{article.title}</h1>
+              <p className='has-text-black'>{article.content}</p>
+              <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     );

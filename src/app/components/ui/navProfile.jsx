@@ -11,7 +11,7 @@ const NavProfile = () => {
     <div className={`dropdown is-right ${isOpen ? 'is-active' : ''}`}>
       <div className="dropdown-trigger">
         <button
-          className="button is-primary"
+          className="button is-success is-inverted"
           aria-haspopup="true"
           aria-controls="dropdown-menu6"
           onClick={toggleMenu}

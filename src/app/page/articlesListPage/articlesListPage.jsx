@@ -12,6 +12,8 @@ const ArticlesListPage = () => {
   let articlesCrop = [];
   if (!articles) {
     return <Loader />;
+  } else if (articles && !articles.length) {
+    return <h1 className='title'>Nobody posted something</h1>;
   } else {
     articlesCrop = getCrop(articles);
     function getCrop(articles) {

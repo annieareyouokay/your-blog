@@ -7,7 +7,7 @@ import EditArticlePage from '../page/editArticlePage/editArticlePage';
 
 const Articles = () => {
   return (
-    <div>
+    <div className='container is-widescreen'>
       <Switch>
         <Route exact path="/articles/add" component={AddArticlePage} />
         <Route path="/articles/:articleId/:edit" component={EditArticlePage} />

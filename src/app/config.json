@@ -1,4 +1,5 @@
 {
-  "apiEndpoint": "http://localhost:3004",
-  "isJsonServer": true
+  "apiEndpoint": "http://localhost:3004/",
+  "isJsonServer": true,
+  "isFirebase": false
 }

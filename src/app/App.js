@@ -7,14 +7,16 @@ import Articles from './layouts/aricles';
 import Main from './layouts/main';
 import Logout from './layouts/logout';
 import ManageUserArticles from './page/manageUserArticles/manageUserArticles';
+import Loader from './layouts/loader';
 
 const App = () => {
   return (
-    <div>
+    <div className='hero is-primary is-fullheight'>
       <AppLoader>
         <NavBar />
         <Switch>
           <Route exact path="/" component={Main} />
+          <Route path='/loader' component={Loader} />
           <Route path="/manage" component={ManageUserArticles} />
           <Route path="/articles" component={Articles} />
           <Route path="/login/:type?" component={Login} />

@@ -5,6 +5,7 @@ const usersSlice = createSlice({
   name: 'users',
   initialState: {
     entities: null,
+    auth: { userId: 1 },
     isLoading: true,
     error: null
   },
@@ -43,5 +44,6 @@ export const getUserById = (id) => (state) => {
     return state.users.entities.find((u) => u.id === id);
   }
 };
+export const getCurrentUserId = () => (state) => state.users.auth.userId;
 
 export default usersReducer;

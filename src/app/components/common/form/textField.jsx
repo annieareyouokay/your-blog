@@ -14,29 +14,6 @@ const TextField = ({ label, type, name, value, onChange, error }) => {
     setShowPassword((prevState) => !prevState);
   };
   return (
-    // <div className="field">
-    //   <label className="label">{label}</label>
-    //   <div className={getControlClass()}>
-    //     <input
-    //       type={showPassword ? 'text' : type}
-    //       id={name}
-    //       name={name}
-    //       value={value}
-    //       onChange={handleChange}
-    //       className={getInputClasses()}
-    //     />
-    //     {type === 'password' && (
-    //       <button
-    //         className="button is-light"
-    //         type="button"
-    //         onClick={toggleShowPassword}
-    //       >
-    //         <i className={'bi bi-eye' + (showPassword ? '-slash' : '')}></i>
-    //       </button>
-    //     )}
-    //     {error && <div className="help is-danger">{error}</div>}
-    //   </div>
-    // </div>
     <div className="field is-horizontal">
       <div className="field-body">
         <div className="field is-expanded">

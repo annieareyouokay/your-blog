@@ -4,40 +4,35 @@ import NavProfile from './navProfile';
 
 const NavBar = () => {
   return (
-    <nav
-      className="navbar has-shadow"
-      role="navigation"
-      aria-label="main navigation"
-    >
-      <div className="navbar-brand">
-        <Link className="navbar-item" to="/">
-          <img
-            src={
-              process.env.PUBLIC_URL +
-              '/your-blog-low-resolution-logo-color-on-transparent-background.png'
-            }
-            width="90"
-            height="28"
-          ></img>
-        </Link>
-      </div>
-
-      <div id="navbarBasicExample" className="navbar-menu">
-        <div className="navbar-end">
-          <div className="navbar-item">
-            <div className="buttons">
-              <Link className="button is-primary" to="/login/signUp">
-                <strong>Sign up</strong>
-              </Link>
-              <Link className="button is-light" to="/login">
-                Log in
-              </Link>
+    <div className="hero-head is-success">
+    <header className="navbar">
+      <div className="container">
+        <div className="navbar-brand">
+          <Link className="navbar-item" to='/'>
+            <img src={process.env.PUBLIC_URL + '/your-blog-high-resolution-logo-white-on-transparent-background.png'} alt="Logo"/>
+          </Link>
+          <span className="navbar-burger" data-target="navbarMenuHeroC">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenuHeroC" className="navbar-menu">
+          <div className="navbar-end">
+            <Link className="navbar-item" to='/login'>
+              Login
+            </Link>
+            <Link className="navbar-item" to='/login/signUp'>
+              Register
+            </Link>
+            <span className="navbar-item">
               <NavProfile />
-            </div>
+            </span>
           </div>
         </div>
       </div>
-    </nav>
+    </header>
+  </div>
   );
 };
 

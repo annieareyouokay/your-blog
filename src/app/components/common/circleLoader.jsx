@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CircleLoader from '../components/common/circleLoader';
-// import { Circles } from 'react-loader-spinner';
+import { Circles } from 'react-loader-spinner';
 
-const Loader = ({
+const CircleLoader = ({
   height = '140',
   width = '140',
   color = 'hsl(0, 0%, 100%)',
@@ -13,8 +12,7 @@ const Loader = ({
   visible = true
 }) => {
   return (
-    <div className="container is-flex is-align-items-center">
-      <CircleLoader
+      <Circles
         height={height}
         width={width}
         color={color}
@@ -23,11 +21,10 @@ const Loader = ({
         wrapperClass={wrapperClass}
         visible={visible}
       />
-    </div>
   );
 };
 
-Loader.propTypes = {
+CircleLoader.propTypes = {
   height: PropTypes.string,
   width: PropTypes.string,
   color: PropTypes.string,
@@ -35,6 +32,6 @@ Loader.propTypes = {
   wrapperStyle: PropTypes.object,
   wrapperClass: PropTypes.string,
   visible: PropTypes.bool,
-  sizeclassName: PropTypes.string
+  sizeClass: PropTypes.string
 };
-export default Loader;
+export default CircleLoader;
