@@ -12,15 +12,15 @@ const CircleLoader = ({
   visible = true
 }) => {
   return (
-      <Circles
-        height={height}
-        width={width}
-        color={color}
-        ariaLabel={ariaLabel}
-        wrapperStyle={wrapperStyle}
-        wrapperClass={wrapperClass}
-        visible={visible}
-      />
+    <Circles
+      height={height}
+      width={width}
+      color={color}
+      ariaLabel={ariaLabel}
+      wrapperStyle={wrapperStyle}
+      wrapperClass={wrapperClass}
+      visible={visible}
+    />
   );
 };
 

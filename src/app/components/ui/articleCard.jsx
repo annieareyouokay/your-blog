@@ -1,37 +1,59 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import UserCard from './userCard';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { getUserById } from '../../store/users';
+import { transformDate } from '../../utils/transformDate';
 
-const ArticleCard = ({ article }) => {
+const ArticleCard = ({ article, mouseOver, mouseLeave, isManage = false }) => {
+  const user = useSelector(getUserById(article.userId));
+
   return (
-    <article className="tile is-child box has-background-primary-light">
-      <UserCard userId={article.userId} />
-      <div className="content">
-        <figure className="image is-4by3">
-          <img src={article.img} alt="Placeholder image" />
-        </figure>
-        <div className="content">
+    <div className="column is-one-third">
+      <div
+        className="card has-shadow card-equal-height"
+        onMouseOver={mouseOver}
+        onMouseLeave={mouseLeave}
+      >
+        <div className="card-content">
+          <h1 className="title is-size-1">{article.title}</h1>
+          <span>
+            <p className="is-size-6 is-italic mb-3">
+              By {user.name} {transformDate(article.date)}
+            </p>
+          </span>
           <p>{article.description}</p>
         </div>
-        <div className="is-flex is-justify-content-space-between">
-          <time
-            className="is-flex is-align-self-flex-end"
-            dateTime={article.date}
-          >
-            {article.date}
-          </time>
-          <Link to={`/articles/${article.id}`} className="button is-primary">
-            More
-          </Link>
-        </div>
+        <footer className="card-footer">
+          {isManage ? (
+            <>
+              <Link
+                to={`/articles/${article.id}/edit`}
+                className="card-footer-item"
+                id="editButton"
+              >
+                <p className="has-text-grey">Edit</p>
+              </Link>
+              <Link to="#" className="card-footer-item" id="deleteButton">
+                <p className="has-text-grey">Delete</p>
+              </Link>
+            </>
+          ) : (
+            <Link to={`/articles/${article.id}`} className="card-footer-item">
+              <p className="has-text-grey">View</p>
+            </Link>
+          )}
+        </footer>
       </div>
-    </article>
+    </div>
   );
 };
 
 ArticleCard.propTypes = {
-  article: PropTypes.object.isRequired
+  article: PropTypes.object.isRequired,
+  mouseOver: PropTypes.func.isRequired,
+  mouseLeave: PropTypes.func.isRequired,
+  isManage: PropTypes.bool
 };
 
 export default ArticleCard;

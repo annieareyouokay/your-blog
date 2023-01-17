@@ -2,30 +2,68 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { getArticleById } from '../../store/articles';
 import UserCard from '../../components/ui/userCard';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import Loader from '../../layouts/loader';
+import { transformDate } from '../../utils/transformDate';
 
 const ArticlePage = () => {
+  const history = useHistory();
   const { articleId } = useParams();
   const article = useSelector(getArticleById(articleId));
 
+  const handleBackButton = () => {
+    history.goBack();
+  };
+
   if (article) {
     return (
-      <div className="tile-is-ancestor">
-        <div className="tile is-parent">
-          <article className="tile is-child notification has-background-primary-light">
-            <div className="content">
-              <figure className="image is-5by3">
-                <img src={article.img}></img>
-              </figure>
-              <UserCard userId={article.userId} />
-              <h1 className='has-text-black'>{article.title}</h1>
-              <p className='has-text-black'>{article.content}</p>
-              <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+      <>
+        <div className="hero is-small has-background-primary-light">
+          <section className="section">
+            <div className="level">
+              <div className="level-left">
+                <p className="level-item">
+                  <button
+                    className="button is-success"
+                    onClick={handleBackButton}
+                  >
+                    <ion-icon name="caret-back-outline"></ion-icon>
+                  </button>
+                </p>
+                <div className="level-item">
+                  <h1 className="title is-size-1 mb-1">{article.title}</h1>
+                </div>
+              </div>
+              <div className="level-right is-italic">
+                <div className="level-item">
+                  <UserCard userId={article.userId} />
+                </div>
+                <span className="level-item">
+                  {transformDate(article.date)}
+                </span>
+              </div>
             </div>
-          </article>
+          </section>
         </div>
-      </div>
+
+        <div className="hero is-fullheight is-align-content-start">
+          <div className="columns">
+            <div className="column is-10 is-offset-1">
+              <div className="content text-has-centered">
+                <div className="container mt-6">
+                  <p className="subtitle is-size-5 is-italic">
+                    {article.description}
+                  </p>
+                </div>
+
+                <div className="container mt-6 is-size-4">
+                  <p>{article.content}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
     );
   } else {
     return <Loader />;

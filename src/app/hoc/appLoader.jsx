@@ -15,7 +15,13 @@ const AppLoader = ({ children }) => {
     dispatch(loadArticlesList());
   }, []);
 
-  if (articlesIsLoading && usersIsLoading) return <Loader />;
+  if (articlesIsLoading || usersIsLoading) {
+    return (
+      <div className="hero is-fullheight">
+        <Loader color="hsl(171, 100%, 41%)" />
+      </div>
+    );
+  }
   return children;
 };
 

@@ -15,9 +15,8 @@ const UserCard = ({ userId }) => {
             <img className="is-rounded" src={user.image} alt="avatar"></img>
           </figure>
         </div>
-        <div className="media-content is-info">
-          <p className="title is-5 has-text-black">{user.name}</p>
-          <p className="subtitle is-6 has-text-black">{`@${user.name.replace(' ', '')}`}</p>
+        <div className="media-content">
+          <p className="title is-4 mt-2">{user.name}</p>
         </div>
       </div>
     );

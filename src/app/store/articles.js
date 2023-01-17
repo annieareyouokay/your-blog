@@ -50,13 +50,12 @@ export const loadArticlesList = () => async (dispatch) => {
 
 export const postArticle = (payload) => async (dispatch, getState) => {
   dispatch(articlePostRequested());
-  console.log(getCurrentUserId()(getState()));
   try {
     const data = await articlesService.post({
       ...payload,
       id: nanoid(),
-      userId: '1',
-      date: Date.now().toString(),
+      userId: getCurrentUserId()(getState()),
+      date: Date.now(),
       img: 'https://loremflickr.com/320/240?random=2'
     });
     dispatch(articlePosted(data));

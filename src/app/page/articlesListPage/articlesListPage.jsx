@@ -5,6 +5,8 @@ import Loader from '../../layouts/loader';
 import { getArticles } from '../../store/articles';
 
 const TAIL_COUNT = 3;
+const PRIMARY_BACKGROUND_COLOR = 'has-background-primary-light';
+const INFO_BACKGROUND_COLOR = 'has-background-link-light';
 
 const ArticlesListPage = () => {
   const articles = useSelector(getArticles());
@@ -13,7 +15,7 @@ const ArticlesListPage = () => {
   if (!articles) {
     return <Loader />;
   } else if (articles && !articles.length) {
-    return <h1 className='title'>Nobody posted something</h1>;
+    return <h1 className="title">Nobody posted something</h1>;
   } else {
     articlesCrop = getCrop(articles);
     function getCrop(articles) {
@@ -24,25 +26,48 @@ const ArticlesListPage = () => {
       return newArticles;
     }
   }
-  return articlesCrop.map((arr, index) => {
-    return (
-      <div
-        className="tile is-ancestor is-flex is-flex-direction-row"
-        key={index}
-      >
-        {arr.map((a) => {
-          return (
-            <div
-              className="tile is-parent is-4 is-flex is-flex-direction-column"
-              key={a.id}
-            >
-              <ArticleCard article={a} />
-            </div>
-          );
-        })}
-      </div>
-    );
-  });
+
+  const handleMouseOver = (e) => {
+    const element = e.target;
+    const cardElement = element.closest('.card');
+    const cardFooterItemElement =
+      cardElement.querySelector('.card-footer-item');
+    !cardElement.classList.contains(PRIMARY_BACKGROUND_COLOR) &&
+      cardElement.classList.add(PRIMARY_BACKGROUND_COLOR);
+    !cardFooterItemElement.classList.contains(INFO_BACKGROUND_COLOR) &&
+      cardFooterItemElement.classList.add(INFO_BACKGROUND_COLOR);
+  };
+  const handleMouseLeave = (e) => {
+    const element = e.target;
+    const cardElement = element.closest('.card');
+    const cardFooterItemElement =
+      cardElement.querySelector('.card-footer-item');
+    cardElement.classList.contains(PRIMARY_BACKGROUND_COLOR) &&
+      cardElement.classList.remove(PRIMARY_BACKGROUND_COLOR);
+    cardFooterItemElement.classList.contains(INFO_BACKGROUND_COLOR) &&
+      cardFooterItemElement.classList.remove(INFO_BACKGROUND_COLOR);
+  };
+
+  return (
+    <div className="container">
+      {articlesCrop.map((arr, index) => {
+        return (
+          <div className="columns" key={index}>
+            {arr.map((a) => {
+              return (
+                <ArticleCard
+                  article={a}
+                  key={a.id}
+                  mouseOver={handleMouseOver}
+                  mouseLeave={handleMouseLeave}
+                />
+              );
+            })}
+          </div>
+        );
+      })}
+    </div>
+  );
 };
 
 export default ArticlesListPage;

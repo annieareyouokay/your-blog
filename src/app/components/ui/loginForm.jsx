@@ -16,33 +16,37 @@ const LoginForm = () => {
     }));
   };
   return (
-    <>
-      <TextField
-        label="Email"
-        name="email"
-        value={data.email}
-        onChange={handleChange}
-        error={errors.email}
-      />
-      <TextField
-        label="Password"
-        type="password"
-        name="password"
-        value={data.password}
-        onChange={handleChange}
-        error={errors.password}
-      />
-      <div className="field">
-        <p className="control">
-          <button className="button is-success">Login</button>
-        </p>
+    <div className="column is-6 is-offset-3">
+      <h3 className="title has-text-grey">Login</h3>
+      <hr className="login-hr" />
+      <div className="box box-shadow-4">
+        <TextField
+          label="Email"
+          name="email"
+          value={data.email}
+          onChange={handleChange}
+          error={errors.email}
+        />
+        <TextField
+          label="Password"
+          type="password"
+          name="password"
+          value={data.password}
+          onChange={handleChange}
+          error={errors.password}
+        />
+        <div className="field">
+          <p className="control">
+            <button className="button is-success">Login</button>
+          </p>
+        </div>
+        <div className="field">
+          <Link to="/login/signUp">
+            <p>Don&apos;t have an account yet?</p>
+          </Link>
+        </div>
       </div>
-      <div className="field">
-        <Link to="/login/signUp">
-          <p>Don&apos;t have an account yet?</p>
-        </Link>
-      </div>
-    </>
+    </div>
   );
 };
 

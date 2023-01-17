@@ -5,7 +5,7 @@ const usersSlice = createSlice({
   name: 'users',
   initialState: {
     entities: null,
-    auth: { userId: 1 },
+    auth: { userId: '1' },
     isLoading: true,
     error: null
   },

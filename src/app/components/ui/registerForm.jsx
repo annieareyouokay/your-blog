@@ -85,52 +85,57 @@ const RegisterForm = () => {
   };
 
   return (
-    <>
-      <TextField
-        label="Email"
-        name="email"
-        value={data.email}
-        onChange={handleChange}
-        error={errors.email}
-      />
-      <TextField
-        label="Password"
-        type="password"
-        name="password"
-        value={data.password}
-        onChange={handleChange}
-        error={errors.password}
-      />
-      <RadioField
-        options={[
-          { name: 'Male', value: 'male' },
-          { name: 'Female', value: 'female' },
-          { name: 'Other', value: 'other' }
-        ]}
-        value={data.sex}
-        name="sex"
-        onChange={handleChange}
-        label="Choose your sex"
-      />
-      <CheckBoxField value={data.stayOn} onChange={handleChange} name="license">
-        I agree to the <Link to="#">terms and conditions</Link>
-      </CheckBoxField>
-      <div className="field">
-        <p className="control">
-          <button
-            className="button is-success"
-            onClick={handleSubmit}
-          >
-            Submit
-          </button>
-        </p>
+    <div className="column is-6 is-offset-3">
+      <h3 className="title has-text-grey">Register</h3>
+      <hr className="login-hr" />
+      <div className="box box-shadow-4">
+        <TextField
+          label="Email"
+          name="email"
+          value={data.email}
+          onChange={handleChange}
+          error={errors.email}
+        />
+        <TextField
+          label="Password"
+          type="password"
+          name="password"
+          value={data.password}
+          onChange={handleChange}
+          error={errors.password}
+        />
+        <RadioField
+          options={[
+            { name: 'Male', value: 'male' },
+            { name: 'Female', value: 'female' },
+            { name: 'Other', value: 'other' }
+          ]}
+          value={data.sex}
+          name="sex"
+          onChange={handleChange}
+          label="Choose your sex"
+        />
+        <CheckBoxField
+          value={data.stayOn}
+          onChange={handleChange}
+          name="license"
+        >
+          I agree to the <Link to="#">terms and conditions</Link>
+        </CheckBoxField>
+        <div className="field">
+          <p className="control">
+            <button className="button is-success" onClick={handleSubmit}>
+              Submit
+            </button>
+          </p>
+        </div>
+        <div className="field">
+          <Link to="/login">
+            <p>Already have an account?</p>
+          </Link>
+        </div>
       </div>
-      <div className="field">
-        <Link to="/login">
-          <p>Already have an account?</p>
-        </Link>
-      </div>
-    </>
+    </div>
   );
 };
 
