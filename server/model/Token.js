@@ -10,4 +10,4 @@ const schema = new Schema(
   }
 );
 
-module.exports = model("Token", shema);
+module.exports = model("Token", schema);
