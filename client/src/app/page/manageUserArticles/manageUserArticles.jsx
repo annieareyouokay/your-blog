@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 import ArticleCard from '../../components/ui/articleCard';
 import Loader from '../../layouts/loader';
@@ -11,6 +12,7 @@ const DANGER_BACKGROUND_COLOR = 'has-background-danger-light';
 const LINK_BACKGROUND_COLOR = 'has-background-link-light';
 
 const ManageUserArticles = () => {
+  const history = useHistory();
   const id = '1';
   const articles = useSelector(getArticlesByUserId(id));
 
@@ -55,6 +57,9 @@ const ManageUserArticles = () => {
       editButtonElement.classList.remove(LINK_BACKGROUND_COLOR);
   };
 
+  const handleOnClick = () => {
+    history.push('/articles/add');
+  };
   // return (
   //   <div className="container is-max-widescreen mt-3">
   //     <div className="tile is-vertical is-ancestor mb-3">
@@ -104,6 +109,9 @@ const ManageUserArticles = () => {
           </div>
         );
       })}
+      <button className="fixed-btn" onClick={handleOnClick}>
+        <ion-icon name="add" size="large"></ion-icon>
+      </button>
     </div>
   );
 };

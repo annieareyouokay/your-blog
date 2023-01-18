@@ -1,0 +1,30 @@
+[
+  {
+    "name": "nature",
+    "color": "link"
+  },
+  {
+    "name": "cinema",
+    "color": "info"
+  },
+  {
+    "name": "sports",
+    "color": "primary"
+  },
+  {
+    "name": "books",
+    "color": "success"
+  },
+  {
+    "name": "games",
+    "color": "warning"
+  },
+  {
+    "name": "cooking",
+    "color": "danger"
+  },
+  {
+    "name": "travel",
+    "color": "primary"
+  }
+]
