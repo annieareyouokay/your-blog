@@ -38,8 +38,8 @@ http.interceptors.request.use(
       }
       const accessToken = localStorageService.getAccessToken();
       if (accessToken) {
-        config.params = {
-          ...config.params,
+        config.headers = {
+          ...config.headers,
           Authorization: `Bearer ${accessToken}`
         };
       }
@@ -83,7 +83,8 @@ const httpService = {
   get: http.get,
   put: http.put,
   post: http.post,
-  delete: http.delete
+  delete: http.delete,
+  patch: http.patch
 };
 
 export default httpService;

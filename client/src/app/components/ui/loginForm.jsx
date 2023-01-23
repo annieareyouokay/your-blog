@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import TextField from '../common/form/textField';
+import { validator } from '../../utils/validator';
+import { useDispatch } from 'react-redux';
+import { login } from '../../store/users';
 
 const LoginForm = () => {
+  const history = useHistory();
+  const dispatch = useDispatch();
   const [data, setData] = useState({
     email: '',
     password: ''
   });
-  const [errors] = useState({});
+  const [errors, setErrors] = useState({});
 
   const handleChange = (target) => {
     setData((prevState) => ({
@@ -15,6 +20,38 @@ const LoginForm = () => {
       [target.name]: target.value
     }));
   };
+
+  const validatorConfig = {
+    email: {
+      isRequired: {
+        message: 'Электронная почта обязательна для заполнения'
+      }
+    },
+    password: {
+      isRequired: {
+        message: 'Пароль обязателен для заполнения'
+      }
+    }
+  };
+
+  useEffect(() => {
+    validate();
+  }, [data]);
+  const validate = () => {
+    const errors = validator(data, validatorConfig);
+    setErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+  const isValid = Object.keys(errors).length === 0;
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const isValid = validate();
+    if (!isValid) return;
+    const redirect = history.location.state ? history.location.state.from.pathname : '/';
+    dispatch(login({ payload: data, redirect }));
+  };
+
   return (
     <div className="column is-6 is-offset-3">
       <h3 className="title has-text-grey">Login</h3>
@@ -37,7 +74,7 @@ const LoginForm = () => {
         />
         <div className="field">
           <p className="control">
-            <button className="button is-success">Login</button>
+            <button className="button is-success" disabled={!isValid} onClick={handleSubmit}>Login</button>
           </p>
         </div>
         <div className="field">

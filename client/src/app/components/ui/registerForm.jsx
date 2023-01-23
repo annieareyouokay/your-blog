@@ -4,26 +4,31 @@ import CheckBoxField from '../common/form/checkBoxField';
 import RadioField from '../common/form/radioField';
 import TextField from '../common/form/textField';
 import { validator } from '../../utils/validator';
+import { useDispatch } from 'react-redux';
+import { signUp } from '../../store/users';
 
 const RegisterForm = () => {
+  const dispatch = useDispatch();
   const [data, setData] = useState({
     email: '',
     password: '',
     sex: 'male',
     name: '',
-    licence: false
+    license: false
   });
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
     validate();
   }, [data]);
+
   const validate = () => {
     const errors = validator(data, validatorConfig);
     setErrors(errors);
     return Object.keys(errors).length === 0;
   };
-  // const isValid = Object.keys(errors).length === 0;
+
+  const isValid = Object.keys(errors).length === 0;
 
   const handleChange = (target) => {
     setData((prevState) => ({
@@ -37,10 +42,12 @@ const RegisterForm = () => {
     const isValid = validate();
     if (!isValid) return;
     const newData = {
-      ...data
+      name: data.name,
+      email: data.email,
+      password: data.password,
+      sex: data.sex
     };
-    console.log(newData);
-    // dispatch(signUp(newData));
+    dispatch(signUp(newData));
   };
 
   const validatorConfig = {
@@ -76,7 +83,7 @@ const RegisterForm = () => {
         value: 8
       }
     },
-    licence: {
+    license: {
       isRequired: {
         message:
           'Вы не можете использовать наш сервис без подтверждения лицензионного соглашения'
@@ -89,6 +96,13 @@ const RegisterForm = () => {
       <h3 className="title has-text-grey">Register</h3>
       <hr className="login-hr" />
       <div className="box box-shadow-4">
+      <TextField
+          label="Name"
+          name="name"
+          value={data.name}
+          onChange={handleChange}
+          error={errors.name}
+        />
         <TextField
           label="Email"
           name="email"
@@ -116,15 +130,16 @@ const RegisterForm = () => {
           label="Choose your sex"
         />
         <CheckBoxField
-          value={data.stayOn}
+          value={data.license}
           onChange={handleChange}
           name="license"
+          error={errors.license}
         >
           I agree to the <Link to="#">terms and conditions</Link>
         </CheckBoxField>
         <div className="field">
           <p className="control">
-            <button className="button is-success" onClick={handleSubmit}>
+            <button className="button is-success" onClick={handleSubmit} disabled={!isValid}>
               Submit
             </button>
           </p>

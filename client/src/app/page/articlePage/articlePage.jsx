@@ -9,6 +9,7 @@ import { transformDate } from '../../utils/transformDate';
 const ArticlePage = () => {
   const history = useHistory();
   const { articleId } = useParams();
+
   const article = useSelector(getArticleById(articleId));
 
   const handleBackButton = () => {
@@ -39,7 +40,7 @@ const ArticlePage = () => {
                   <UserCard userId={article.userId} />
                 </div>
                 <span className="level-item">
-                  {transformDate(article.date)}
+                  {transformDate(article.updatedAt)}
                 </span>
               </div>
             </div>

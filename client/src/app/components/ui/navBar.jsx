@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchField from '../common/form/searchField';
-// import NavProfile from './navProfile';
+import { useSelector } from 'react-redux';
+import { getUserIsLoggedIn } from '../../store/users';
+import NavProfile from './navProfile';
 
 const NavBar = () => {
+  const isLoggedIn = useSelector(getUserIsLoggedIn());
   return (
     <nav className="navbar is-primary has-shadow is-fixed-top">
       <div className="navbar-brand">
@@ -28,21 +31,22 @@ const NavBar = () => {
           <div className="navbar-item">
             <SearchField />
           </div>
-          <div className="navbar-item">
-            <div className="buttons">
-              <Link className="button is-light" to="/login">
-                Log in
-              </Link>
-              <Link className="button is-link" to="/login/signUp">
-                <strong>Sign up</strong>
-              </Link>
+          {isLoggedIn ? (
+            <div className="navbar-item">
+              <NavProfile />
             </div>
-          </div>
-          <div className="navbar-item">
-            <Link to="/articles/manage" className="button is-warning">
-              your profile
-            </Link>
-          </div>
+          ) : (
+            <div className="navbar-item">
+              <div className="buttons">
+                <Link className="button is-light" to="/login">
+                  Log in
+                </Link>
+                <Link className="button is-link" to="/login/signUp">
+                  <strong>Sign up</strong>
+                </Link>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </nav>

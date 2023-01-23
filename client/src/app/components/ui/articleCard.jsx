@@ -19,7 +19,7 @@ const ArticleCard = ({ article, mouseOver, mouseLeave, isManage = false }) => {
           <h1 className="title is-size-1">{article.title}</h1>
           <span>
             <p className="is-size-6 is-italic mb-3">
-              By {user.name} {transformDate(article.date)}
+              By {user.name} {transformDate(article.updatedAt)}
             </p>
           </span>
           <p>{article.description}</p>
@@ -28,7 +28,7 @@ const ArticleCard = ({ article, mouseOver, mouseLeave, isManage = false }) => {
           {isManage ? (
             <>
               <Link
-                to={`/articles/${article.id}/edit`}
+                to={`/articles/${article._id}/edit`}
                 className="card-footer-item"
                 id="editButton"
               >
@@ -39,7 +39,7 @@ const ArticleCard = ({ article, mouseOver, mouseLeave, isManage = false }) => {
               </Link>
             </>
           ) : (
-            <Link to={`/articles/${article.id}`} className="card-footer-item">
+            <Link to={`/articles/${article._id}`} className="card-footer-item">
               <p className="has-text-grey">View</p>
             </Link>
           )}

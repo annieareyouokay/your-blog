@@ -1,12 +1,12 @@
 import httpService from './http.service';
 
-const usersEndpoint = 'user/';
+const usersEndpoint = 'tag/';
 
-const usersService = {
+const tagsService = {
   get: async () => {
     const { data } = await httpService.get(usersEndpoint);
     return data;
   }
 };
 
-export default usersService;
+export default tagsService;

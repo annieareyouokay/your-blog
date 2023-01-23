@@ -1,6 +1,6 @@
 import httpService from './http.service';
 
-const articlesEndpoint = 'articles/';
+const articlesEndpoint = 'article/';
 
 const articlesService = {
   get: async () => {
@@ -9,6 +9,13 @@ const articlesService = {
   },
   post: async (payload) => {
     const { data } = await httpService.post(articlesEndpoint, payload);
+    return data;
+  },
+  update: async (articleId, payload) => {
+    const { data } = await httpService.patch(
+      articlesEndpoint + articleId,
+      payload
+    );
     return data;
   }
 };

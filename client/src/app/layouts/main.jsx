@@ -3,7 +3,6 @@ import useMockData from '../hooks/useMockData';
 
 const Main = () => {
   const { error, initialize, progress, status } = useMockData();
-  console.log(process.env.REACT_APP_FIREBASE_KEY);
   const handleClick = () => {
     initialize();
   };

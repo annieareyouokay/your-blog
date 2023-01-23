@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const CheckBoxField = ({ name, value, onChange, children, error }) => {
+const CheckBoxField = ({ name, value, onChange, children, disabled, error }) => {
   const handleChange = () => {
     onChange({ name: name, value: !value });
   };
@@ -19,6 +19,7 @@ const CheckBoxField = ({ name, value, onChange, children, error }) => {
             onChange={handleChange}
             checked={value}
             className="m-2"
+            disabled={disabled}
           />
           {children}
         </label>
@@ -35,6 +36,7 @@ CheckBoxField.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ]),
+  disabled: PropTypes.bool,
   error: PropTypes.string
 };
 

@@ -7,10 +7,12 @@ const initDb = require('./startUp/initDb');
 const routes = require('./routes');
 
 const app = express();
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use('/api', routes);
 app.use(cors());
+
+app.use('/api', routes);
 
 const PORT = config.get("port") ?? 8080;
 

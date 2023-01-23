@@ -1,22 +1,34 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import AddArticlePage from '../page/addArticlePage';
+import { useSelector } from 'react-redux';
+import { Redirect, useParams } from 'react-router-dom';
+// import ArticlesLoader from '../hoc/articlesLoader';
 import ArticlePage from '../page/articlePage/articlePage';
 import ArticlesListPage from '../page/articlesListPage';
 import EditArticlePage from '../page/editArticlePage/editArticlePage';
-import ManageUserArticles from '../page/manageUserArticles/manageUserArticles';
+import { getArticleById } from '../store/articles';
+import { getCurrentUserId } from '../store/users';
 
 const Articles = () => {
+  const params = useParams();
+  const { articleId, edit } = params;
+  const currentUserId = useSelector(getCurrentUserId());
+  const article = useSelector(getArticleById(articleId));
+
   return (
-    <section className="section">
-      <Switch>
-        <Route exact path="/articles/add" component={AddArticlePage} />
-        <Route exact path="/articles/manage" component={ManageUserArticles} />
-        <Route path="/articles/:articleId/:edit" component={EditArticlePage} />
-        <Route path="/articles/:articleId" component={ArticlePage} />
-        <Route exact path="/articles" component={ArticlesListPage} />
-        <Route exact path="/" component={ArticlesListPage} />
-      </Switch>
+    <section className="section mt-6">
+      {articleId ? (
+        edit ? (
+          (article.userId === currentUserId ? (
+            <EditArticlePage />
+          ) : (
+            <Redirect to={`/articles`} />
+          ))
+        ) : (
+          <ArticlePage />
+        )
+      ) : (
+        <ArticlesListPage />
+      )}
     </section>
   );
 };

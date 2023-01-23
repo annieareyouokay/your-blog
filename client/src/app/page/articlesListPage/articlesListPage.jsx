@@ -15,7 +15,13 @@ const ArticlesListPage = () => {
   if (!articles) {
     return <Loader />;
   } else if (articles && !articles.length) {
-    return <h1 className="title">Nobody posted something</h1>;
+    return (
+      <section className="hero is-fullheight is-info">
+        <div className="hero-body">
+          <p className="title is-size-1">Have no posts here..</p>
+        </div>
+      </section>
+    );
   } else {
     articlesCrop = getCrop(articles);
     function getCrop(articles) {
@@ -57,7 +63,7 @@ const ArticlesListPage = () => {
               return (
                 <ArticleCard
                   article={a}
-                  key={a.id}
+                  key={a._id}
                   mouseOver={handleMouseOver}
                   mouseLeave={handleMouseLeave}
                 />

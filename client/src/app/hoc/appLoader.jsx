@@ -2,20 +2,24 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { getArticlesLoadingStatus, loadArticlesList } from '../store/articles';
-import { getUsersLoadingStatus, loadUsersList } from '../store/users';
 import Loader from '../layouts/loader';
+import { getTagLoadingStatus, loadTagsList } from '../store/tags';
+import { getUserIsLoggedIn, getUsersLoadingStatus, loadUsersList } from '../store/users';
 
 const AppLoader = ({ children }) => {
   const dispatch = useDispatch();
   const articlesIsLoading = useSelector(getArticlesLoadingStatus());
+  const tagsIsLoading = useSelector(getTagLoadingStatus());
   const usersIsLoading = useSelector(getUsersLoadingStatus());
+  const isLoggedIn = useSelector(getUserIsLoggedIn());
 
   useEffect(() => {
-    dispatch(loadUsersList());
     dispatch(loadArticlesList());
-  }, []);
+    dispatch(loadTagsList());
+    dispatch(loadUsersList());
+  }, [isLoggedIn]);
 
-  if (articlesIsLoading || usersIsLoading) {
+  if (articlesIsLoading || tagsIsLoading || usersIsLoading) {
     return (
       <div className="hero is-fullheight">
         <Loader color="hsl(171, 100%, 41%)" />

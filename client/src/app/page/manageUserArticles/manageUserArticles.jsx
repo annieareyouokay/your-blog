@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 import ArticleCard from '../../components/ui/articleCard';
 import Loader from '../../layouts/loader';
 import { getArticlesByUserId } from '../../store/articles';
+import { getCurrentUserId } from '../../store/users';
 
 const TAIL_COUNT = 3;
 const PRIMARY_BACKGROUND_COLOR = 'has-background-primary-light';
@@ -13,14 +14,29 @@ const LINK_BACKGROUND_COLOR = 'has-background-link-light';
 
 const ManageUserArticles = () => {
   const history = useHistory();
-  const id = '1';
-  const articles = useSelector(getArticlesByUserId(id));
+  const currentUserId = useSelector(getCurrentUserId());
+  const articles = useSelector(getArticlesByUserId(currentUserId));
+
+  const handleOnClick = () => {
+    history.push('/admin/add');
+  };
 
   let articlesCrop = [];
   if (!articles) {
     return <Loader />;
   } else if (articles && !articles.length) {
-    return <h1 className="title">Nobody posted something</h1>;
+    return (
+      <>
+        <section className="hero is-fullheight is-warning">
+          <div className="hero-body">
+            <p className="title is-size-1">You have no posts</p>
+          </div>
+        </section>
+        <button className="fixed-btn" onClick={handleOnClick}>
+          <ion-icon name="add" size="large"></ion-icon>
+        </button>
+      </>
+    );
   } else {
     articlesCrop = getCrop(articles);
     function getCrop(articles) {
@@ -57,62 +73,31 @@ const ManageUserArticles = () => {
       editButtonElement.classList.remove(LINK_BACKGROUND_COLOR);
   };
 
-  const handleOnClick = () => {
-    history.push('/articles/add');
-  };
-  // return (
-  //   <div className="container is-max-widescreen mt-3">
-  //     <div className="tile is-vertical is-ancestor mb-3">
-  //       <div className="tile is-parent is-flex is-justify-content-space-between">
-  //         <p className="title has-text-black">Manage articles</p>
-  //         <Link className="button is-info" to='/articles/add'>
-  //           Add article{' '}
-  //           <span className="icon is-medium ml-2">
-  //             <ion-icon name="add-outline"></ion-icon>
-  //           </span>
-  //         </Link>
-  //       </div>
-  //       {articles.map((a) => {
-  //         return (
-  //           <div className="tile is-parent" key={a.id}>
-  //             <article className="tile box is-child notification">
-  //               <div className="content">
-  //                 <div className="is-flex is-justify-content-end">
-  //                   <button className="delete is-medium has-background-danger"></button>
-  //                 </div>
-  //                 <p className="title has-text-black">{a.title}</p>
-  //                 <p className="has-text-black">{a.description}</p>
-  //               </div>
-  //             </article>
-  //           </div>
-  //         );
-  //       })}
-  //     </div>
-  //   </div>
-  // );
   return (
-    <div className="container">
-      {articlesCrop.map((arr, index) => {
-        return (
-          <div className="columns" key={index}>
-            {arr.map((a) => {
-              return (
-                <ArticleCard
-                  article={a}
-                  key={a.id}
-                  mouseLeave={handleMouseLeave}
-                  mouseOver={handleMouseOver}
-                  isManage={true}
-                />
-              );
-            })}
-          </div>
-        );
-      })}
-      <button className="fixed-btn" onClick={handleOnClick}>
-        <ion-icon name="add" size="large"></ion-icon>
-      </button>
-    </div>
+    <section className="section mt-6">
+      <div className="container">
+        {articlesCrop.map((arr, index) => {
+          return (
+            <div className="columns" key={index}>
+              {arr.map((a) => {
+                return (
+                  <ArticleCard
+                    article={a}
+                    key={a._id}
+                    mouseLeave={handleMouseLeave}
+                    mouseOver={handleMouseOver}
+                    isManage={true}
+                  />
+                );
+              })}
+            </div>
+          );
+        })}
+        <button className="fixed-btn" onClick={handleOnClick}>
+          <ion-icon name="add" size="large"></ion-icon>
+        </button>
+      </div>
+    </section>
   );
 };
 
