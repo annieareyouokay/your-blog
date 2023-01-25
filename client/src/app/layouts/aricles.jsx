@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Redirect, useParams } from 'react-router-dom';
-// import ArticlesLoader from '../hoc/articlesLoader';
 import ArticlePage from '../page/articlePage/articlePage';
 import ArticlesListPage from '../page/articlesListPage';
 import EditArticlePage from '../page/editArticlePage/editArticlePage';
@@ -21,7 +20,7 @@ const Articles = () => {
           (article.userId === currentUserId ? (
             <EditArticlePage />
           ) : (
-            <Redirect to={`/articles`} />
+            <Redirect to={`/`} />
           ))
         ) : (
           <ArticlePage />
