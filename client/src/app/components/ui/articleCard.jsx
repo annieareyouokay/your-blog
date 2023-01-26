@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { getUserById } from '../../store/users';
 import { transformDate } from '../../utils/transformDate';
 
-const ArticleCard = ({ article, mouseOver, mouseLeave, isManage = false }) => {
+const ArticleCard = ({ article, mouseOver, mouseLeave, onDelete, isManage = false }) => {
   const user = useSelector(getUserById(article.userId));
 
   return (
@@ -34,7 +34,7 @@ const ArticleCard = ({ article, mouseOver, mouseLeave, isManage = false }) => {
               >
                 <p className="has-text-grey">Edit</p>
               </Link>
-              <Link to="#" className="card-footer-item" id="deleteButton">
+              <Link to="#" className="card-footer-item" id="deleteButton" onClick={() => onDelete(article._id)}>
                 <p className="has-text-grey">Delete</p>
               </Link>
             </>
@@ -53,6 +53,7 @@ ArticleCard.propTypes = {
   article: PropTypes.object.isRequired,
   mouseOver: PropTypes.func.isRequired,
   mouseLeave: PropTypes.func.isRequired,
+  onDelete: PropTypes.func,
   isManage: PropTypes.bool
 };
 

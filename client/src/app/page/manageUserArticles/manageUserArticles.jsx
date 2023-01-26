@@ -1,24 +1,33 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-// import { Link } from 'react-router-dom';
 import ArticleCard from '../../components/ui/articleCard';
+import Pagination from '../../components/ui/pagination';
 import Loader from '../../layouts/loader';
-import { getArticlesByUserId } from '../../store/articles';
+import { deleteArticle, getArticlesByUserId } from '../../store/articles';
 import { getCurrentUserId } from '../../store/users';
+import { paginate } from '../../utils/paginate';
 
 const TAIL_COUNT = 3;
 const PRIMARY_BACKGROUND_COLOR = 'has-background-primary-light';
 const DANGER_BACKGROUND_COLOR = 'has-background-danger-light';
 const LINK_BACKGROUND_COLOR = 'has-background-link-light';
+const PAGE_SIZE = 2 * 3;
 
 const ManageUserArticles = () => {
+  const dispatch = useDispatch();
   const history = useHistory();
+  const [currentPage, setCurrentPage] = useState(1);
   const currentUserId = useSelector(getCurrentUserId());
   const articles = useSelector(getArticlesByUserId(currentUserId));
+  const count = articles.length;
 
   const handleOnClick = () => {
     history.push('/admin/add');
+  };
+
+  const handlePageChange = (pageIndex) => {
+    setCurrentPage(pageIndex);
   };
 
   let articlesCrop = [];
@@ -37,15 +46,17 @@ const ManageUserArticles = () => {
         </button>
       </>
     );
-  } else {
-    articlesCrop = getCrop(articles);
-    function getCrop(articles) {
-      const newArticles = [];
-      for (let index = 0; index < articles.length; index += TAIL_COUNT) {
-        newArticles.push(articles.slice(index, index + TAIL_COUNT));
-      }
-      return newArticles;
+  }
+
+  articlesCrop = getCrop(articles);
+  const paginatedArtciles = paginate(articlesCrop, currentPage, 2);
+
+  function getCrop(articles) {
+    const newArticles = [];
+    for (let index = 0; index < articles.length; index += TAIL_COUNT) {
+      newArticles.push(articles.slice(index, index + TAIL_COUNT));
     }
+    return newArticles;
   }
 
   const handleMouseOver = (e) => {
@@ -73,10 +84,14 @@ const ManageUserArticles = () => {
       editButtonElement.classList.remove(LINK_BACKGROUND_COLOR);
   };
 
+  const handleOnDelete = (_id) => {
+    dispatch(deleteArticle(_id));
+  };
+
   return (
     <section className="section mt-6">
       <div className="container">
-        {articlesCrop.map((arr, index) => {
+        {paginatedArtciles.map((arr, index) => {
           return (
             <div className="columns" key={index}>
               {arr.map((a) => {
@@ -87,6 +102,7 @@ const ManageUserArticles = () => {
                     mouseLeave={handleMouseLeave}
                     mouseOver={handleMouseOver}
                     isManage={true}
+                    onDelete={handleOnDelete}
                   />
                 );
               })}
@@ -96,6 +112,9 @@ const ManageUserArticles = () => {
         <button className="fixed-btn" onClick={handleOnClick}>
           <ion-icon name="add" size="large"></ion-icon>
         </button>
+        <div>
+        <Pagination itemsCount={count} currentPage={currentPage} onPageChange={handlePageChange} pageSize={PAGE_SIZE} />
+      </div>
       </div>
     </section>
   );

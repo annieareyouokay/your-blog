@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const SearchField = () => {
+const SearchField = ({ searchQuery, onChange }) => {
   return (
     <div className="bd-search">
       <p className="control has-icons-left">
@@ -8,8 +9,9 @@ const SearchField = () => {
           className="input is-rounded ds-input"
           type="text"
           placeholder="Search the docs"
-          aria-label="search input"
           dir="auto"
+          value={searchQuery}
+          onChange={onChange}
         />
         <span className="ds-dropdown-menu"></span>
         <span className="icon is-small is-left">
@@ -18,6 +20,11 @@ const SearchField = () => {
       </p>
     </div>
   );
+};
+
+SearchField.propTypes = {
+  searchQuery: PropTypes.string,
+  onChange: PropTypes.func
 };
 
 export default SearchField;

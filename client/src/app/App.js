@@ -9,6 +9,7 @@ import Footer from './components/ui/footer';
 import AddArticlePage from './page/addArticlePage';
 import Main from './layouts/main';
 import ManageUserArticles from './page/manageUserArticles/manageUserArticles';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const App = () => {
   return (
@@ -17,7 +18,7 @@ const App = () => {
         <NavBar />
         <Switch>
           <Route exact path="/" component={Main} />
-          <Route path="/articles/:articleId?/:edit?" component={Articles}/>
+          <ProtectedRoute path="/articles/:articleId?/:edit?" component={Articles}/>
           <Route path="/admin/add" component={AddArticlePage}/>
           <Route path="/admin" component={ManageUserArticles} />
           <Route path="/login/:type?" component={Login} />

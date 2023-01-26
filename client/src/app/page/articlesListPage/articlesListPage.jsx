@@ -5,6 +5,7 @@ import Pagination from '../../components/ui/pagination';
 import Loader from '../../layouts/loader';
 import { getArticles } from '../../store/articles';
 import { paginate } from '../../utils/paginate';
+import SearchField from '../../components/common/form/searchField';
 
 const TAIL_COUNT = 3;
 const PRIMARY_BACKGROUND_COLOR = 'has-background-primary-light';
@@ -13,13 +14,17 @@ const PAGE_SIZE = 2 * 3;
 
 const ArticlesListPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchQuery, setSearchQuery] = useState('');
   const articles = useSelector(getArticles());
-  const count = articles.length;
 
   let articlesCrop = [];
 
   const handlePageChange = (pageIndex) => {
     setCurrentPage(pageIndex);
+  };
+
+  const handleSearchQuery = ({ target }) => {
+    setSearchQuery(target.value);
   };
 
   if (!articles) {
@@ -33,7 +38,9 @@ const ArticlesListPage = () => {
       </section>
     );
   }
-  articlesCrop = getCrop(articles);
+  const filteredArticles = filterArticles(articles);
+  const count = filteredArticles.length;
+  articlesCrop = getCrop(filteredArticles);
   const paginatedArtciles = paginate(articlesCrop, currentPage, 2);
 
   function getCrop(articles) {
@@ -65,23 +72,18 @@ const ArticlesListPage = () => {
       cardFooterItemElement.classList.remove(INFO_BACKGROUND_COLOR);
   };
 
-  // function filterUsers(data) {
-  //   const filteredUsers = searchQuery
-  //     ? data.filter(
-  //         (user) =>
-  //           user.name.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1
-  //       )
-  //     : selectedProf
-  //     ? data.filter(
-  //         (user) =>
-  //           JSON.stringify(user.profession) === JSON.stringify(selectedProf)
-  //       )
-  //     : data;
-  //   return filteredUsers.filter((u) => u._id !== currentUserId);
-  // }
+  function filterArticles(data) {
+    return searchQuery ? data.filter(
+      (a) =>
+        a.title.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1
+    ) : data;
+  }
 
   return (
     <div className="container">
+      <div className="navbar-item">
+        <SearchField searchQuery={searchQuery} onChange={handleSearchQuery} />
+      </div>
       {paginatedArtciles.map((arr, index) => {
         return (
           <div className="columns" key={index}>
@@ -99,7 +101,12 @@ const ArticlesListPage = () => {
         );
       })}
       <div>
-        <Pagination itemsCount={count} currentPage={currentPage} onPageChange={handlePageChange} pageSize={PAGE_SIZE} />
+        <Pagination
+          itemsCount={count}
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+          pageSize={PAGE_SIZE}
+        />
       </div>
     </div>
   );

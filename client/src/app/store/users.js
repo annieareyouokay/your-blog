@@ -81,7 +81,7 @@ export const loadUsersList = () => async (dispatch) => {
 export const signUp = (payload) => async (dispatch) => {
   dispatch(authRequested());
   try {
-    const data = authService.register(payload);
+    const data = await authService.register(payload);
     localStorageService.setTokens(data);
     dispatch(authRequestSuccess({ userId: data.userId }));
     history.push('/');

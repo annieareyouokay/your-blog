@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SearchField from '../common/form/searchField';
 import { useSelector } from 'react-redux';
 import { getUserIsLoggedIn } from '../../store/users';
 import NavProfile from './navProfile';
@@ -28,13 +27,17 @@ const NavBar = () => {
 
       <div className="navbar-menu" id="nav-links">
         <div className="navbar-end">
-          <div className="navbar-item">
-            <SearchField />
-          </div>
           {isLoggedIn ? (
-            <div className="navbar-item">
-              <NavProfile />
-            </div>
+            <>
+              <div className="navbar-item">
+                <Link className="button is-link" to="/articles">
+                  <strong>Articles</strong>
+                </Link>
+              </div>
+              <div className="navbar-item">
+                <NavProfile />
+              </div>
+            </>
           ) : (
             <div className="navbar-item">
               <div className="buttons">

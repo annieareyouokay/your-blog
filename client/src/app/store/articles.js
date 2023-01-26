@@ -33,6 +33,9 @@ const articlesSlice = createSlice({
     },
     articleUpdateFailed: (state, action) => {
       state.error = action.payload;
+    },
+    articleDeleteSuccessed: (state, action) => {
+      state.entities = state.entities.filter(a => a._id !== action.payload._id);
     }
   }
 });
@@ -40,6 +43,8 @@ const articlesSlice = createSlice({
 const articlePostRequested = createAction('articles/articlePostRequested');
 const postArticleFailed = createAction('articles/postArticleFailed');
 const articleUpdateRequested = createAction('articles/articleUpdateRequested');
+const articleDeleteRequested = createAction('articles/articleDeleteRequested');
+const articleDeleteFailed = createAction('artticles/articleDeleteFailed');
 
 const { reducer: articlesReducer, actions } = articlesSlice;
 const {
@@ -48,7 +53,8 @@ const {
   articlesRequestFailed,
   articlePosted,
   articleUpdateSuccessed,
-  articleUpdateFailed
+  articleUpdateFailed,
+  articleDeleteSuccessed
 } = actions;
 
 export const loadArticlesList = () => async (dispatch) => {
@@ -80,6 +86,18 @@ export const updateArticle = (articleId, payload) => async (dispatch) => {
     history.push('/admin');
   } catch (error) {
     dispatch(articleUpdateFailed());
+  }
+};
+
+export const deleteArticle = (articleId) => async (dispatch) => {
+  dispatch(articleDeleteRequested());
+  try {
+    const { content } = await articlesService.delete(articleId);
+    if (content === '') {
+      dispatch(articleDeleteSuccessed({ _id: articleId }));
+    }
+  } catch (error) {
+    dispatch(articleDeleteFailed());
   }
 };
 
